@@ -41,7 +41,7 @@ ln -sf "/usr/share/zoneinfo/UTC" "/etc/localtime"
 # Set root permission and shell
 usermod -s /usr/bin/bash root
 # create overlayfs / merge skell with liveskel
-mount -t overlay overlay -o lowerdir=/root/liveskel:~/etc/skel /etc/liveskel
+mount -t overlay overlay -o lowerdir=/root/liveskel:/etc/skel /etc/liveskel
 
 # Create liveuser
 useradd -m -p "" -g 'liveuser' -G 'sys,rfkill,wheel,uucp,nopasswdlogin,adm,tty' -s /bin/bash liveuser -k /etc/liveskel
