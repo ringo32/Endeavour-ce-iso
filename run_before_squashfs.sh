@@ -31,7 +31,7 @@ pacman-key --populate archlinux endeavouros
 pacman -Syy
 
 # Install liveuser skel (in case of conflicts use overwrite)
-pacman -U --noconfirm --overwrite "/etc/skel/.bash_profile","/etc/skel/.bashrc" -- "/root/endeavouros-skel-liveuser/"*".pkg.tar.zst"
+#pacman -U --noconfirm --overwrite "/etc/skel/.bash_profile","/etc/skel/.bashrc" -- "/root/endeavouros-skel-liveuser/"*".pkg.tar.zst"
 
 # Prepare livesession settings and user
 sed -i 's/#\(en_US\.UTF-8\)/\1/' "/etc/locale.gen"
@@ -40,11 +40,19 @@ ln -sf "/usr/share/zoneinfo/UTC" "/etc/localtime"
 
 # Set root permission and shell
 usermod -s /usr/bin/bash root
+# create overlayfs / merge skell with liveskel
+mount -t overlay overlay -o lowerdir=/root/liveskel:~/etc/skel /etc/liveskel
 
 # Create liveuser
-useradd -m -p "" -g 'liveuser' -G 'sys,rfkill,wheel,uucp,nopasswdlogin,adm,tty' -s /bin/bash liveuser
+useradd -m -p "" -g 'liveuser' -G 'sys,rfkill,wheel,uucp,nopasswdlogin,adm,tty' -s /bin/bash liveuser -k /etc/liveskel
 cp "/root/liveuser.png" "/var/lib/AccountsService/icons/liveuser"
 rm "/root/liveuser.png"
+
+# unmount and  remove liveskel
+umount overlay
+rm -R "/root/liveskel"
+rm -R "/etc/liveskel"
+
 
 # Remove liveuser skel to then install user skel
 pacman -Rns --noconfirm -- "endeavouros-skel-liveuser"
