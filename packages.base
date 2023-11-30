@@ -198,48 +198,6 @@ hdparm
 
 # DESKTOP
 
-## Desktop environment
-ark
-bluedevil
-breeze-gtk
-dolphin
-dolphin-plugins
-eos-plasma-sddm-config
-gwenview
-haruna
-kcalc
-kate
-kdeplasma-addons
-kdeconnect
-kde-gtk-config
-kgamma5
-khotkeys
-kimageformats5
-kinfocenter
-kinit
-kio-fuse
-konsole
-kscreen
-kwallet-pam
-okular
-plasma-desktop
-plasma-disks
-plasma-nm
-plasma-pa
-plasma-systemmonitor
-powerdevil
-sddm-kcm
-spectacle
-xsettingsd
-
-## Editor
-kate
-
-## Archive
-file-roller
-
-## Browser
-firefox
 
 ## System
 meld
