@@ -55,8 +55,8 @@ rm -R "/etc/liveskel"
 
 
 # Remove liveuser skel to then install user skel
-pacman -Rns --noconfirm -- "endeavouros-skel-liveuser"
-rm -rf "/root/endeavouros-skel-liveuser"
+#pacman -Rns --noconfirm -- "endeavouros-skel-liveuser"
+#rm -rf "/root/endeavouros-skel-liveuser"
 
 # setup theming for root user
 cp -a "/root/root-theme" "/root/.config"
