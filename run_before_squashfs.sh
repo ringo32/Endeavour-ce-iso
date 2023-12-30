@@ -59,8 +59,8 @@ rm -R "/etc/liveskel"
 #rm -rf "/root/endeavouros-skel-liveuser"
 
 # setup theming for root user
-cp -a "/root/root-theme" "/root/.config"
-rm -R "/root/root-theme"
+cp -a "/etc/skel/.config" "/root/.config"
+#rm -R "/root/root-theme"
 
 # Add builddate to motd:
 cat "/usr/lib/endeavouros-release" >> "/etc/motd"
@@ -85,7 +85,7 @@ chmod 644 "/usr/share/endeavouros/backgrounds/"*".png"
 # TEMPORARY CUSTOM FIXES
 
 # Fix for getting bash configs installed
-cp -af "/home/liveuser/"{".bashrc",".bash_profile"} "/etc/skel/"
+#cp -af "/home/liveuser/"{".bashrc",".bash_profile"} "/etc/skel/"
 
 # Move blacklisting nouveau out of ISO (copy back to target for offline installs)
 mv "/usr/lib/modprobe.d/nvidia-utils.conf" "/etc/calamares/files/nv-modprobe"
