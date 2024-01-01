@@ -5,3 +5,4 @@
 #
 BROWSER=firefox
 EDITOR=nano
+QT_QPA_PLATFORMTHEME=qt5ct
